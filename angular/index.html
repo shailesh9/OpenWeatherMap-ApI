@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" ng-app="weatherapp">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular Demo</title>
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="js/controllers.js"></script>
+</head>
+<body>
+
+<div ng-controller = "citycontroller">
+ <ul>
+            <li ng-repeat="city in cities"><strong>{{city.name}}</strong>
+                <br />
+                <small ng-if="city.forecast">Forecast: {{city.forecast.weather[0].description}} Main: {{city.forecast.main}}</small></li>
+        </ul>
+        
+        <input type="text" ng-model="newCityName" />
+        <button ng-click="addCity(newCityName)">Add city</button>
+        
+        <button ng-click="refreshAll()">Refresh all</button>
+
+</div>
+</body>
+</html>
